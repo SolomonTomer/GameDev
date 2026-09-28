@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MovementTuning" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://player/movement_tuning.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+run_speed = 350.0
+gravity = 1536.0
+jump_velocity = -768.0
+air_control = 1.0
+coyote_time = 0.2
+jump_buffer_time = 0.2
