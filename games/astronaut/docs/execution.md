@@ -24,8 +24,8 @@ Playtest: run around and jump. Does it feel floaty and generous? Do jumps presse
 ## M2 — The climbing world
 
 Steps:
-1. Create the TileSet (a placeholder tile, with a solid variant and a one-way variant).
-2. Paint the climbing layout in `main.tscn`: wide platforms, small gaps, and ledges stepped so that a slip lands one step down.
+1. Create the TileSet (one solid placeholder tile).
+2. Paint the climbing layout in `main.tscn`: wide platforms, small gaps, ledges stepped so that a slip lands one step down, and headroom above every jump path.
 3. Build the MovingPlatform scene and place at least one where waiting is required to go on.
 4. Verify the headless check passes.
 

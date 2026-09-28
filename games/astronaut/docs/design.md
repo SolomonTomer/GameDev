@@ -67,8 +67,8 @@ Main (Node2D, main.gd)
 - Jump buffer: 0.2 s
 
 **Level**: a [TileMapLayer](https://docs.godotengine.org/en/stable/classes/class_tilemaplayer.html). It lets us paint the level on a grid in the editor, and swapping placeholder art for real art later means changing only the TileSet.
-- The floor and walls use solid tiles.
-- **Floating platforms use one-way collision**, so the astronaut jumps up through them from below and lands on top. This is a forgiveness choice: he can never bonk his head and fall back down.
+- Every tile is fully solid, including the floor, walls and platforms (spec: platforms are solid from every side).
+- Level-design rule: keep enough headroom above each jump path that a normal jump never hits the underside of the platform above.
 
 **MovingPlatform**: an [AnimatableBody2D](https://docs.godotengine.org/en/stable/classes/class_animatablebody2d.html). It's a physics body moved by code or animation that correctly carries whatever stands on it.
 - A looping [Tween](https://docs.godotengine.org/en/stable/classes/class_tween.html) moves it between two points and pauses at each end. The pause is the "wait for it" moment.

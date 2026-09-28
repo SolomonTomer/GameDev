@@ -40,6 +40,7 @@ A game for a 3-year-old (target: 18/11 birthday) that teaches movement, cause an
 - **A single static screen** with no camera scrolling. The whole world, including the rocket, is visible at all times.
 - **A climb**: the astronaut starts at the bottom, and the rocket stands on a ledge at the top.
 - Wide platforms and small gaps.
+- Platforms are solid from every side, like real objects. The astronaut cannot jump up through them from below.
 - **At least one moving platform** that the child has to wait for. This is the "patience" mechanic, and mistiming it costs nothing but a retry.
 - **Closed world**: a solid floor at the bottom and walls at the side edges of the screen. Nothing can fall out of the world.
 
