@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/moving_platform.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
-size = Vector2(64, 64)
+size = Vector2(96, 64)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
 script = ExtResource("1")
@@ -13,4 +13,4 @@ shape = SubResource("RectangleShape2D_platform")
 
 [node name="Visual" type="Polygon2D" parent="."]
 color = Color(0.95, 0.65, 0.15, 1)
-polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygon = PackedVector2Array(-48, -32, 48, -32, 48, 32, -48, 32)
