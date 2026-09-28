@@ -6,10 +6,14 @@ A repo of independent game prototypes. The owner is an experienced backend (C#) 
 
 ```
 games/<game>/
-  CLAUDE.md       game-specific stack version, run/test commands, notes
-  docs/spec.md    design spec: the source of truth for that game
-  project.godot   the Godot project lives at the game folder root
+  CLAUDE.md          game-specific stack version, run/test commands, notes
+  docs/spec.md       design spec: what and why. The source of truth for that game
+  docs/design.md     technical design: how (scenes, nodes, data, signals)
+  docs/execution.md  execution plan: milestones, steps, status
+  project.godot      the Godot project lives at the game folder root
 ```
+
+Docs flow in one direction: spec → technical design → execution. Each is approved before the next is written. If a later doc needs something the earlier one doesn't say, update the earlier one first.
 
 - Each game is self-contained. No code shared or imported between games unless we explicitly agree to add a `shared/` folder.
 - A new game starts with `games/<name>/docs/spec.md` and `games/<name>/CLAUDE.md`.
@@ -34,7 +38,8 @@ games/<game>/
 - I make every design decision. Don't finalize spec content I haven't agreed to.
 
 ### Implementation phase
-- Before coding a spec, propose a short milestone plan and wait for approval.
+- Before coding a spec, write `docs/design.md` and `docs/execution.md` (the milestone plan) and wait for approval.
+- Keep `docs/execution.md` status current as milestones progress.
 - Then work through each milestone on your own. Stop only for real blockers, or when you believe the spec is wrong or see a clearly better design. In that case explain briefly, propose an alternative, and wait for my call.
 - Never build beyond the spec, and never build anything on its out-of-scope list. If something seems missing, ask.
 - End each milestone with a short summary: what was built, how to playtest it, and any concerns.

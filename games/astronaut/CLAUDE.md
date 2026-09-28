@@ -1,10 +1,16 @@
 # Astronaut
 
-Toddler-friendly 2D climbing platformer. Design source of truth: `docs/spec.md`.
+Toddler-friendly 2D climbing platformer.
+
+## Docs
+
+- `docs/spec.md`: what and why (source of truth)
+- `docs/design.md`: technical design
+- `docs/execution.md`: milestones and status
 
 ## Stack
 
-- Godot 4.x (exact version TBD: pin to the one installed on the dev PC).
+- Godot 4.7.2 (stable), Compatibility renderer.
 - GDScript with static typing.
 
 ## Run
@@ -14,9 +20,9 @@ Toddler-friendly 2D climbing platformer. Design source of truth: `docs/spec.md`.
 
 ## Tests
 
-None yet. Add only for logic where bugs would be subtle.
+None planned; see `docs/design.md`.
 
 ## Notes
 
-- Input is exactly 3 actions (`left`, `right`, `jump`), mapped to both the arcade box (gamepad buttons) and the keyboard.
-- "Very forgiving" is the top design rule. Movement tuning lives in a Resource.
+- Input is exactly 3 actions (`left`, `right`, `jump`) plus a keyboard-only `quit`.
+- "Very forgiving" is the top design rule. Movement tuning lives in `player/movement_tuning.tres`.

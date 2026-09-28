@@ -1,4 +1,4 @@
-# Astronaut Prototype — Design Spec (v1, draft)
+# Astronaut Prototype — Design Spec (v1)
 
 ## Purpose
 
@@ -23,9 +23,9 @@ A game for a 3-year-old (target: 18/11 birthday) that teaches movement, cause an
 ## Controls
 
 - Exactly 3 actions: `left`, `right`, `jump`.
-- Primary input: a 3-button arcade box (USB encoder, seen by the PC as a gamepad).
+- Primary input: a 3-button arcade box (USB encoder, seen by the PC as a gamepad). Until the box arrives, standard gamepad buttons stand in, and they get remapped once it does.
 - Keyboard fallback, mapped to the same actions: arrow keys, A/D, and Space.
-- Hold `left` or `right` to walk, and press `jump` to jump.
+- Hold `left` or `right` to walk, and press `jump` to jump. Jump height is fixed, so holding the button longer does not jump higher.
 - A parent-only keyboard key (Esc) quits the game. The arcade box cannot quit.
 
 ## Movement (very forgiving)
@@ -87,8 +87,3 @@ Recorded so the prototype doesn't block it, not to be built now:
 - After the launch, a planet map. `left` and `right` move the rocket between planets, `jump` lands on one, and each rocket upgrade unlocks new planets.
 - Planets that feel different (for example, low gravity).
 - Open worlds with no floor: falling out floats the astronaut back in a bubble to the last platform they stood on.
-
-## Open questions (proposed defaults, need owner sign-off)
-
-1. **Jump height:** fixed, with no hold-to-jump-higher. Toddlers don't control press duration well. *Proposed: fixed.*
-2. **Godot version:** pin the version installed on the dev PC.
