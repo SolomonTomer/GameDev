@@ -6,7 +6,7 @@ Implements `docs/design.md`. Each milestone is one branch and one PR, and ends w
 |---|---|---|
 | M1 | Project, input, movement | Done |
 | M2 | The climbing world | Done |
-| M3 | Engine parts, panel, rocket | Not started |
+| M3 | Engine parts, panel, rocket | Done |
 | M4 | Launch, reset, sound | Not started |
 
 ## M1 — Project, input, movement
