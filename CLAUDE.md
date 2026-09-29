@@ -29,7 +29,7 @@ Docs flow in one direction: spec → technical design → execution. Each is app
 - Simple over clever: build exactly what the spec asks. No speculative extensibility, and no abstraction until something is needed in three places.
 - Comments only for a non-obvious "why".
 - Tests are minimal: only for logic where bugs would be subtle (progression rules, graph logic). Playtesting verifies feel.
-- Verify before claiming done: the project must run headless without errors and existing tests must pass.
+- Verify before claiming done: the project must run headless without errors and existing tests must pass. That alone only proves the scene parses, not that it's playable. Before reporting any milestone or gameplay change as complete, dispatch the `godot-playtester` subagent (`.claude/agents/godot-playtester.md`) to actually simulate and playtest the relevant mechanics headlessly. Fix anything it reports and re-dispatch it to confirm before telling me a milestone is done.
 
 ## Working with me
 
