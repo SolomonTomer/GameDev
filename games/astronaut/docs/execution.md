@@ -58,7 +58,23 @@ Planned piece by piece, as the spec's art pass section is decided.
 
 | # | Piece | Status |
 |---|---|---|
-| A1 | Astronaut character and animations | In review |
+| A1 | Astronaut character and animations | Done (PR 8) |
+| A2 | Earth look for the first level: tiles, background, decorations, moving platform | In review |
+| A3 | Rocket, engine parts and parts panel | Not started |
+
+### A2 — Earth level
+
+Steps:
+1. Copy the Kenney tile sheet, its XML, two background tiles and the license into `world/art/`.
+2. Rebuild `world/tiles.tres` on the Kenney sheet: solid terrain tiles with full-square collision, and decoration tiles without.
+3. Repaint the Level layer with the same solid cells as before, choosing each tile from its neighbours.
+4. Add the Decor layer and paint decorations on platform tops.
+5. Add `world/background.tscn` (sky, clouds, hills) and put it first in `main.tscn`.
+6. Restyle the moving platform as a wooden plank, keeping its collision.
+7. Start the astronaut on the floor, since he used to start inside the first platform and drop out of it, which would show with real art.
+8. Verify: headless check, the solid cells are identical to before, the full loop still plays, and a full-resolution render looks right.
+
+Playtest: does the world read clearly? Can he tell the grass platforms (solid ground) from the wooden plank (the moving one)? Do the decorations distract from the parts?
 
 ## After M4
 
