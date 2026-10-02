@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 230" width="320" height="460" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Rocket body: fins, engine mount, body, nose, window. Ground contact is y=175, centre x=80. -->
+  <!-- fins (behind the body); the flat feet stand on the ground -->
+  <path d="M42 96 C26 110 14 138 12 175 H46 V148 Z" fill="#ff5d73" stroke="#2b2d42" stroke-width="4"/>
+  <path d="M118 96 C134 110 146 138 148 175 H114 V148 Z" fill="#ff5d73" stroke="#2b2d42" stroke-width="4"/>
+  <!-- empty engine mount below the body -->
+  <rect x="56" y="144" width="48" height="12" rx="4" fill="#6b7690" stroke="#2b2d42" stroke-width="4"/>
+  <circle cx="64" cy="152" r="1.8" fill="#c9d1e0"/>
+  <circle cx="80" cy="152" r="1.8" fill="#c9d1e0"/>
+  <circle cx="96" cy="152" r="1.8" fill="#c9d1e0"/>
+  <!-- body -->
+  <path d="M40 52 H120 V136 Q120 148 108 148 H52 Q40 148 40 136 Z" fill="#f4f6fb"/>
+  <path d="M110 52 H120 V136 Q120 148 108 148 H106 C111 128 111 84 110 52 Z" fill="#cfd6e4"/>
+  <path d="M40 52 H120 V136 Q120 148 108 148 H52 Q40 148 40 136 Z" fill="none" stroke="#2b2d42" stroke-width="4"/>
+  <!-- nose -->
+  <path d="M40 52 C40 28 60 14 80 14 C100 14 120 28 120 52 Z" fill="#ff5d73"/>
+  <path d="M120 52 C120 28 100 14 80 14 C98 20 110 34 110 52 Z" fill="#d93f5a"/>
+  <path d="M40 52 C40 28 60 14 80 14 C100 14 120 28 120 52 Z" fill="none" stroke="#2b2d42" stroke-width="4"/>
+  <path d="M51 44 C52 36 57 29 65 24" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.9"/>
+  <!-- window, switched off -->
+  <circle cx="80" cy="76" r="18" fill="#cfd6e4" stroke="#2b2d42" stroke-width="4"/>
+  <circle cx="80" cy="76" r="12.5" fill="#7f94bd" stroke="#2b2d42" stroke-width="3"/>
+  <path d="M72 71 A9 9 0 0 1 78 67" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+  <!-- side lights, echoing the astronaut's chest panel -->
+  <circle cx="52" cy="114" r="3.5" fill="#ff5d73" stroke="#2b2d42" stroke-width="2.5"/>
+  <circle cx="108" cy="114" r="3.5" fill="#4cc9f0" stroke="#2b2d42" stroke-width="2.5"/>
+</svg>

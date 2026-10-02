@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="96" height="96">
+  <!-- Smoke puff: three circles, outlines first so the union has one clean edge. -->
+  <g fill="none" stroke="#cfd6e4" stroke-width="5">
+    <circle cx="16" cy="29" r="11"/>
+    <circle cx="32" cy="29" r="11"/>
+    <circle cx="24" cy="20" r="12"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="16" cy="29" r="11"/>
+    <circle cx="32" cy="29" r="11"/>
+    <circle cx="24" cy="20" r="12"/>
+  </g>
+</svg>
