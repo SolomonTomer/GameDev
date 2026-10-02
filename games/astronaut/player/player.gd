@@ -3,10 +3,23 @@ extends CharacterBody2D
 
 @export var tuning: MovementTuning
 
+@onready var _jump_sound: AudioStreamPlayer = $JumpSound
+@onready var _land_sound: AudioStreamPlayer = $LandSound
+
 var _coyote_time_left: float = 0.0
 var _jump_buffer_time_left: float = 0.0
+var _controls_enabled: bool = true
+var _was_on_floor: bool = true
+
+func set_controls_enabled(enabled: bool) -> void:
+	_controls_enabled = enabled
+	if not enabled:
+		velocity = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	if not _controls_enabled:
+		return
+
 	if is_on_floor():
 		_coyote_time_left = tuning.coyote_time
 	else:
@@ -27,5 +40,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = tuning.jump_velocity
 		_jump_buffer_time_left = 0.0
 		_coyote_time_left = 0.0
+		_jump_sound.play()
 
 	move_and_slide()
+
+	var on_floor_now: bool = is_on_floor()
+	if on_floor_now and not _was_on_floor:
+		_land_sound.play()
+	_was_on_floor = on_floor_now
