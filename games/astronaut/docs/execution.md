@@ -60,7 +60,20 @@ Planned piece by piece, as the spec's art pass section is decided.
 |---|---|---|
 | A1 | Astronaut character and animations | Done (PR 8) |
 | A2 | Earth look for the first level: tiles, background, decorations, moving platform | In review |
-| A3 | Rocket, engine parts and parts panel | Not started |
+| A3 | Rocket: look and animation | In review |
+| A4 | Engine parts and parts panel | Not started |
+
+### A3 — Rocket
+
+Steps:
+1. Draw the rocket as layered SVG files on one shared canvas (body, engine, lit window, astronaut in the window, three door frames), plus the flame frames, a smoke puff and a sparkle, under `rocket/art/`.
+2. Add `door_frames.tres` and `flame_frames.tres` (SpriteFrames).
+3. Rebuild `rocket/rocket.tscn`: `Glow`, then a `Visual` pivot at the rocket's feet holding the layers and the particle emitters. Keep the collision box and the four sounds.
+4. Rewrite `rocket/rocket.gd`: breathing while waiting, a friendly hop when he arrives too early, the ready state (glow, lit window, sparkles, wiggle), and the new launch sequence. Keep `set_ready()`, `needs_parts` and `launched` exactly as they were.
+5. Put the rocket's feet on the ledge: the old placeholder floated 16 px above it.
+6. Verify: headless check, plus a simulated run of each state (waiting, wrong entry, ready, launch timeline, re-entry, reset after launch) and full-resolution renders of each beat.
+
+Playtest: does he understand that the rocket has "woken up" when the last part goes in? Does he watch the launch? Is the small face in the window readable to him, and is anything in the smoke or sparkles distracting?
 
 ### A2 — Earth level
 
