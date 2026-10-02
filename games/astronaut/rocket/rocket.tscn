@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://rocket/rocket.gd" id="1"]
+[ext_resource type="AudioStream" path="res://audio/door_close.wav" id="2"]
+[ext_resource type="AudioStream" path="res://audio/engine_attach.wav" id="3"]
+[ext_resource type="AudioStream" path="res://audio/ignition.wav" id="4"]
+[ext_resource type="AudioStream" path="res://audio/lift_off.wav" id="5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rocket"]
 size = Vector2(90, 170)
+
+[sub_resource type="Gradient" id="Gradient_flame"]
+colors = PackedColorArray(1, 0.8, 0.2, 1, 1, 0.3, 0.1, 0)
 
 [node name="Rocket" type="Area2D"]
 script = ExtResource("1")
@@ -18,3 +25,36 @@ polygon = PackedVector2Array(0, -96, 48, -24, 48, 96, -48, 96, -48, -24)
 [node name="Body" type="Polygon2D" parent="."]
 color = Color(0.7, 0.72, 0.75, 1)
 polygon = PackedVector2Array(0, -80, 40, -20, 40, 80, -40, 80, -40, -20)
+
+[node name="Door" type="Polygon2D" parent="."]
+color = Color(0.15, 0.15, 0.18, 1)
+polygon = PackedVector2Array(-12, 20, 12, 20, 12, 60, -12, 60)
+
+[node name="Engine" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.35, 0.35, 0.4, 1)
+polygon = PackedVector2Array(-25, 80, 25, 80, 20, 110, -20, 110)
+
+[node name="Flame" type="CPUParticles2D" parent="."]
+position = Vector2(0, 110)
+emitting = false
+amount = 16
+lifetime = 0.4
+direction = Vector2(0, 1)
+spread = 15.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+color_ramp = SubResource("Gradient_flame")
+
+[node name="DoorCloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+
+[node name="EngineAttachSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+
+[node name="IgnitionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+
+[node name="LiftOffSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")

@@ -12,6 +12,7 @@ func _ready() -> void:
 	for part in parts:
 		(part as EnginePart).collected.connect(_on_part_collected)
 	_rocket.needs_parts.connect(_on_rocket_needs_parts)
+	_rocket.launched.connect(_on_rocket_launched)
 
 func _on_part_collected(part: EnginePart) -> void:
 	parts_collected += 1
@@ -21,6 +22,9 @@ func _on_part_collected(part: EnginePart) -> void:
 
 func _on_rocket_needs_parts() -> void:
 	_parts_panel.pulse_empty_slots()
+
+func _on_rocket_launched() -> void:
+	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("quit"):

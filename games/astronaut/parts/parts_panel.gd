@@ -9,6 +9,8 @@ const FLY_DURATION := 0.6
 	$Slot1/Visual,
 	$Slot2/Visual,
 ]
+@onready var _slot_fill_sound: AudioStreamPlayer = $SlotFillSound
+@onready var _pulse_sound: AudioStreamPlayer = $PulseSound
 
 var _next_slot_index: int = 0
 
@@ -29,9 +31,13 @@ func fly_to_next_slot(from_position: Vector2) -> void:
 	tween.tween_callback(func() -> void:
 		slot.color = SLOT_COLOR_FILLED
 		icon.queue_free()
+		_slot_fill_sound.play()
 	)
 
 func pulse_empty_slots() -> void:
+	if _next_slot_index >= _slots.size():
+		return
+	_pulse_sound.play()
 	for i in range(_next_slot_index, _slots.size()):
 		_pulse(_slots[i])
 
