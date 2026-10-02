@@ -1,0 +1,69 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3]
+
+[ext_resource type="Texture2D" path="res://player/art/astronaut_idle_0.png" id="1"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_idle_1.png" id="2"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_0.png" id="3"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_1.png" id="4"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_2.png" id="5"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_3.png" id="6"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_4.png" id="7"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_run_5.png" id="8"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_jump_0_start.png" id="9"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_jump_1_air.png" id="10"]
+[ext_resource type="Texture2D" path="res://player/art/astronaut_jump_2_land.png" id="11"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
+"loop": false,
+"name": &"land",
+"speed": 8.0
+}]
