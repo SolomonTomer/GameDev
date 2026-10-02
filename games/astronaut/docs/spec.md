@@ -64,8 +64,17 @@ A game for a 3-year-old (target: 18/11 birthday) that teaches movement, cause an
 ## Presentation
 
 - 2D, fullscreen, 1920×1080.
-- Placeholder art (simple shapes or free assets) is acceptable for the prototype.
+- Placeholder art (simple shapes or free assets) is acceptable for the prototype, except where the art pass below has replaced it.
 - Sound effects only, no music required: jump, land, part pickup, part-to-slot, empty-slot pulse, door close, engine attach, ignition, lift-off.
+
+## Art pass
+
+Replaces placeholder art piece by piece. Done so far:
+
+- **The astronaut**: a cute, chunky character we draw ourselves, with thick dark outlines, a big round helmet and a visible face behind the visor. The whole figure faces the way he moves, and the art is mirrored when he moves left.
+- **Astronaut animations**: idle (gentle breathing), run, jump (takeoff, then the in-air pose) and a short landing squash.
+
+Still to decide: tiles, background, rocket, engine parts and panel. Fallback if our own art doesn't hold up: the Kenney New Platformer Pack (CC0).
 
 ## Explicitly out of scope — do NOT build
 

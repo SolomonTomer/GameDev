@@ -31,6 +31,9 @@ games/astronaut/
   player/player.tscn, player.gd
   player/movement_tuning.gd                # Resource class
   player/movement_tuning.tres              # tuning values
+  player/astronaut_frames.tres             # SpriteFrames: the astronaut animations
+  player/art/*.png                         # rendered astronaut frames
+  art_src/astronaut/                       # generator for the astronaut frames (ignored by Godot)
   world/tiles.tres                         # TileSet (placeholder tile)
   world/moving_platform.tscn, moving_platform.gd
   parts/engine_part.tscn, engine_part.gd
@@ -58,6 +61,8 @@ Main (Node2D, main.gd)
 - Reads the `left`, `right` and `jump` actions. Every value comes from an exported `MovementTuning` resource: run speed, gravity, fixed jump velocity, air control, coyote time and jump-buffer window.
 - Plays its own jump and land sounds (child `AudioStreamPlayer` nodes).
 - `set_controls_enabled(bool)` lets the rocket freeze the player during launch.
+- Its visual is an [AnimatedSprite2D](https://docs.godotengine.org/en/stable/classes/class_animatedsprite2d.html) (a node that flips through image frames) using `astronaut_frames.tres`, with the animations `idle`, `run`, `jump` and `land`. Frame rates live in that resource.
+- Animation rule, checked every physics frame: in the air → `jump` (it plays once and holds on the in-air pose); on landing → `land` until it finishes; otherwise `run` while moving and `idle` when still. `flip_h` mirrors the art when moving left.
 
 **MovementTuning**: a custom [Resource](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html). It's a data object saved as a `.tres` file and edited in the Inspector, which fits the "data-driven" principle. Starting values are guesses to tune in M1:
 - Tile size: 64 px
@@ -105,7 +110,8 @@ The quit action (Esc) is handled in `main.gd` via `_unhandled_input` and calls `
 
 ## Art and audio
 
-- Art: placeholder shapes and colors, or CC0 assets (for example, Kenney). Real art is a later decision.
+- Art: placeholder shapes and colors, replaced piece by piece in the art pass.
+- Astronaut pipeline: `art_src/astronaut/gen.py` draws each frame as an SVG, and `render.js` (Node + Playwright's Chromium) renders them to `player/art/*.png` at 2× the in-game size. The sprite is scaled to 0.5, so it stays sharp on bigger screens. To change the character, edit `gen.py`, run both scripts, and commit the PNGs. `art_src/` has a `.gdignore`, so Godot skips it.
 - Audio: CC0 placeholder sounds (for example, Kenney or sfxr-generated) stored as `.wav` files under `audio/`.
 
 ## Testing
