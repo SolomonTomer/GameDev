@@ -73,8 +73,14 @@ Replaces placeholder art piece by piece. Done so far:
 
 - **The astronaut**: a cute, chunky character we draw ourselves, with thick dark outlines, a big round helmet and a visible face behind the visor. The whole figure faces the way he moves, and the art is mirrored when he moves left.
 - **Astronaut animations**: idle (gentle breathing), run, jump (takeoff, then the in-air pose) and a short landing squash.
+- **The first world is an "Earth" level**, built from the Kenney New Platformer Pack (CC0):
+  - Grass-topped dirt for the floor, platforms and walls, so every solid thing looks like solid ground.
+  - A soft sky background with clouds and pale distant hills. It stays light and quiet so the platforms, the parts and the astronaut stand out.
+  - A few decorations (bushes, grass tufts, mushrooms, rocks, a fence) sitting on the platforms. They are only decoration: nothing collects, blocks or hurts.
+  - The moving platform is a wooden plank, so a different material tells him it is the one that moves.
+- **Art only**: the level layout, collisions, jump distances and part positions don't change in the art pass.
 
-Still to decide: tiles, background, rocket, engine parts and panel. Fallback if our own art doesn't hold up: the Kenney New Platformer Pack (CC0).
+Still to decide: rocket, engine parts and panel. Later worlds can use other Kenney terrains (for example sand, snow or stone) for other planets.
 
 ## Explicitly out of scope — do NOT build
 
