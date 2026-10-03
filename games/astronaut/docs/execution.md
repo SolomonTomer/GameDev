@@ -52,6 +52,14 @@ Steps:
 
 Playtest: the full loop, several times in a row. Does he want to go again?
 
+## Art pass
+
+Planned piece by piece, as the spec's art pass section is decided.
+
+| # | Piece | Status |
+|---|---|---|
+| A1 | Astronaut character and animations | In review |
+
 ## After M4
 
 Remap the input to the real arcade box once it arrives, which is a small input-map change. Then review the prototype against the spec's "Later" list together.

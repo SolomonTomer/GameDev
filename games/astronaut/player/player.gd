@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var _jump_sound: AudioStreamPlayer = $JumpSound
 @onready var _land_sound: AudioStreamPlayer = $LandSound
+@onready var _sprite: AnimatedSprite2D = $Sprite
 
 var _coyote_time_left: float = 0.0
 var _jump_buffer_time_left: float = 0.0
@@ -45,6 +46,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var on_floor_now: bool = is_on_floor()
-	if on_floor_now and not _was_on_floor:
+	var just_landed: bool = on_floor_now and not _was_on_floor
+	if just_landed:
 		_land_sound.play()
 	_was_on_floor = on_floor_now
+	_update_animation(direction, just_landed)
+
+func _update_animation(direction: float, just_landed: bool) -> void:
+	if direction != 0.0:
+		_sprite.flip_h = direction < 0.0
+	if just_landed:
+		_sprite.play(&"land")
+	if not is_on_floor():
+		if _sprite.animation != &"jump":
+			_sprite.play(&"jump")
+	elif _sprite.animation == &"land" and _sprite.is_playing():
+		return
+	else:
+		_sprite.play(&"run" if direction != 0.0 else &"idle")
