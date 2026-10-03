@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 130" width="160" height="260" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Flame, first spark. Top edge is y=6 and tucks behind the engine bell. -->
+  <path d="M26 6 C22 18 32 30 40 40 C48 30 58 18 54 6 Z" fill="#ff9f43" stroke="#2b2d42" stroke-width="3.5"/>
+  <path d="M32 6 C30 14 36 22 40 28 C44 22 50 14 48 6 Z" fill="#ffd23f"/>
+</svg>

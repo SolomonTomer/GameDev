@@ -41,6 +41,8 @@ games/astronaut/
   parts/engine_part.tscn, engine_part.gd
   parts/parts_panel.tscn, parts_panel.gd
   rocket/rocket.tscn, rocket.gd
+  rocket/door_frames.tres, flame_frames.tres   # SpriteFrames: hatch closing, flame igniting and burning
+  rocket/art/*.svg                         # rocket layers, flame frames, smoke puff and sparkle (Godot imports SVG directly)
   audio/*.wav
 ```
 
@@ -98,10 +100,16 @@ Main (Node2D, main.gd)
 - `fly_to_next_slot(from_position)` tweens a part icon from its world position into the next empty slot and plays a sound.
 - `pulse_empty_slots()` gives the gentle hint.
 
-**Rocket**: an Area2D plus sprites (body, door, hidden engine) and a [CPUParticles2D](https://docs.godotengine.org/en/stable/classes/class_cpuparticles2d.html) flame.
-- `set_ready()` turns on the glow.
-- When the player enters and it's not ready, it emits `needs_parts`.
-- When the player enters and it is ready, it runs the launch as one sequential Tween: freeze and hide the player, close the door, show the engine as the parts snap on, ignite the flame and sound, then fly up off the screen. At the end it emits `launched`.
+**Rocket**: an Area2D whose look is a stack of layers under a `Visual` Node2D, plus a `Glow` sprite behind it. Its collision box and its public API (`set_ready()`, the signals `needs_parts` and `launched`) are unchanged, so `main.gd` didn't need to change.
+- **Layers** (bottom to top inside `Visual`): `Flame` and `Engine` (both hidden at first), `Body` (fins, mount, body, nose, dull window), `WindowLit`, `WindowAstronaut`, `Door`, then the particle emitters. Every layer except the flame is drawn on the same 160×230 canvas with the ground contact at the same point, so they line up with no per-layer offsets: each [Sprite2D](https://docs.godotengine.org/en/stable/classes/class_sprite2d.html) just sets `offset` to move that point to the origin.
+- **Pivot:** `Visual` sits at the rocket's feet (the ledge top), so scaling it squashes and stretches from the ground. The ledge is 96 px below the Rocket node's origin.
+- **Door and flame** are [AnimatedSprite2D](https://docs.godotengine.org/en/stable/classes/class_animatedsprite2d.html) nodes with their own SpriteFrames: the door has `open` and `close` (open → half → closed); the flame has `ignite` (plays once, then hands over) and `burn` (loops three frames).
+- **Glow** is a Sprite2D with a [GradientTexture2D](https://docs.godotengine.org/en/stable/classes/class_gradienttexture2d.html), Godot's built-in gradient image. No art file is needed.
+- **Effects** are [CPUParticles2D](https://docs.godotengine.org/en/stable/classes/class_cpuparticles2d.html) with a small SVG texture each: `Sparkles` (while ready), `AttachSparks` (one burst), `SmokeBurst` (one burst at ignition) and `SmokeTrail` (during lift-off, in world space so the puffs stay behind).
+- **Waiting:** a looping Tween breathes `Visual.scale` gently.
+- **`needs_parts`:** when the player enters before all parts are collected, it emits `needs_parts` and does a friendly double hop (`Visual` moves up 8 px and back twice). It is a hop rather than a head-shake on purpose, since the spec allows no "fail" feedback. A new hop cancels one still running.
+- **`set_ready()`:** fades the glow and the lit window in, starts the sparkles, pulses the glow, and swaps the breathing for a loop that wiggles every second or so. Calling it twice does nothing the second time.
+- **Launch:** when the player enters and it is ready, one sequential Tween runs, with a few short side tweens for the pops and shakes: freeze and hide the player and stop the idle loops → door closes → door sound and the astronaut's face appears in the window → engine slides in with a sparkle burst → flame ignites with a smoke burst and a rumble → lift-off sound, a quick squat, then it rises (ease-in) and stretches with a smoke trail. At the end it emits `launched`. About 3.6 seconds in total.
 
 ## Flow and state
 
@@ -124,6 +132,7 @@ The quit action (Esc) is handled in `main.gd` via `_unhandled_input` and calls `
 - Art: placeholder shapes and colors, replaced piece by piece in the art pass.
 - Astronaut pipeline: `art_src/astronaut/gen.py` draws each frame as an SVG, and `render.js` (Node + Playwright's Chromium) renders them to `player/art/*.png` at 2× the in-game size. The sprite is scaled to 0.5, so it stays sharp on bigger screens. To change the character, edit `gen.py`, run both scripts, and commit the PNGs. `art_src/` has a `.gdignore`, so Godot skips it.
 - Environment art: the Kenney New Platformer Pack (CC0, license kept in `world/art/KENNEY_LICENSE.txt`). We copy only what we use: the tile sheet and its XML, and two 256 px background tiles. Other terrains in the same sheet (sand, snow, stone, purple) are there for later planets.
+- Rocket art: hand-written SVG files in `rocket/art/`, kept as the source of truth and imported by Godot directly (it rasterizes SVG at import), so there is no render step and no Node or Python needed. Each file is written at 2× the in-game size (the SVG's `width`/`height` are double its `viewBox`) and its sprite is scaled to 0.5, like the astronaut, so it stays sharp on bigger screens. Colors reuse the astronaut's palette (dark outline `#2b2d42`, white `#f4f6fb`, orange `#ff8c42`) plus a coral red for the nose and fins. To change the rocket, edit the SVG; Godot re-imports it when the editor regains focus.
 - Audio: CC0 placeholder sounds (for example, Kenney or sfxr-generated) stored as `.wav` files under `audio/`.
 
 ## Testing

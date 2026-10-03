@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 230" width="320" height="460" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Door open: a warm lit doorway, with the door panel swung out on its right-hand hinge. -->
+  <path d="M63 148 V118 A17 17 0 0 1 97 118 V148 Z" fill="#3a3f63"/>
+  <path d="M66.5 146 V118 A13.5 13.5 0 0 1 93.5 118 V146 Z" fill="#ffe08a"/>
+  <rect x="66.5" y="139" width="27" height="7" fill="#e8b84a"/>
+  <path d="M63 148 V118 A17 17 0 0 1 97 118 V148 Z" fill="none" stroke="#2b2d42" stroke-width="4"/>
+  <path d="M97 122 L109 114 V146 L97 148 Z" fill="#ff8c42" stroke="#2b2d42" stroke-width="3.5"/>
+</svg>
