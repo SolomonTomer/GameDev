@@ -73,8 +73,18 @@ Replaces placeholder art piece by piece. Done so far:
 
 - **The astronaut**: a cute, chunky character we draw ourselves, with thick dark outlines, a big round helmet and a visible face behind the visor. The whole figure faces the way he moves, and the art is mirrored when he moves left.
 - **Astronaut animations**: idle (gentle breathing), run, jump (takeoff, then the in-air pose) and a short landing squash.
+- **The first world is an "Earth" level**, built from the Kenney New Platformer Pack (CC0):
+  - Grass-topped dirt for the floor, platforms and walls, so every solid thing looks like solid ground.
+  - A soft sky background with clouds and pale distant hills. It stays light and quiet so the platforms, the parts and the astronaut stand out.
+  - A few decorations (bushes, grass tufts, mushrooms, rocks, a fence) sitting on the platforms. They are only decoration: nothing collects, blocks or hurts.
+  - The moving platform is a wooden plank, so a different material tells him it is the one that moves.
+- **The rocket**: a chunky, friendly rocket in the same outlined style as the astronaut, with a white body, red nose and fins, a round window and an orange hatch. It stands on its fins on the top ledge, and it is what brings the end of the level to life:
+  - **Waiting:** it breathes gently, and the open doorway glows warm, inviting him in. If he walks in before all 3 parts are collected, it gives a happy little double hop while the slots pulse, as before. It never shakes "no": this is a hint, not a refusal.
+  - **Ready (all 3 parts):** the window lights up, a warm glow and twinkling stars appear around it, and every so often it wiggles with excitement.
+  - **Launch:** the hatch swings shut and his face shows in the window. A new engine snaps on under the body in a burst of sparkles. Smoke puffs out as the flame lights, the rocket rumbles and squats, then blasts off with a smoke trail. It still takes a few seconds.
+- **Art only**: the level layout, collisions, jump distances and part positions don't change in the art pass.
 
-Still to decide: tiles, background, rocket, engine parts and panel. Fallback if our own art doesn't hold up: the Kenney New Platformer Pack (CC0).
+Still to decide: engine parts and panel. Later worlds can use other Kenney terrains (for example sand, snow or stone) for other planets.
 
 ## Explicitly out of scope — do NOT build
 

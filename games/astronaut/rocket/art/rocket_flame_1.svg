@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 130" width="160" height="260" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Burning flame, frame 1 of 3: shorter, tip leaning right. -->
+  <path d="M20 6 C12 34 28 66 43 90 C56 66 68 34 60 6 Z" fill="#ff9f43" stroke="#2b2d42" stroke-width="3.5"/>
+  <path d="M28 6 C24 28 34 50 43 70 C50 52 56 28 52 6 Z" fill="#ffd23f"/>
+  <path d="M34 6 C32 18 38 30 42 42 C45 30 47 18 46 6 Z" fill="#fff7d1"/>
+</svg>

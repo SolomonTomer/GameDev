@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 230" width="320" height="460" stroke-linejoin="round" stroke-linecap="round">
+  <!-- The window glass switched on. Covers the dull glass in rocket_body.svg (centre 80,76). -->
+  <circle cx="80" cy="76" r="11.4" fill="#ffe9a0"/>
+  <circle cx="80" cy="76" r="7.5" fill="#fff6cf"/>
+  <path d="M72 71 A9 9 0 0 1 78 67" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+</svg>

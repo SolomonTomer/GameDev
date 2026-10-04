@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://rocket/art/rocket_flame_ignite_0.svg" id="1"]
+[ext_resource type="Texture2D" path="res://rocket/art/rocket_flame_ignite_1.svg" id="2"]
+[ext_resource type="Texture2D" path="res://rocket/art/rocket_flame_0.svg" id="3"]
+[ext_resource type="Texture2D" path="res://rocket/art/rocket_flame_1.svg" id="4"]
+[ext_resource type="Texture2D" path="res://rocket/art/rocket_flame_2.svg" id="5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": false,
+"name": &"ignite",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 14.0
+}]
