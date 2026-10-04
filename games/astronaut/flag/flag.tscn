@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://flag/flag.gd" id="1"]
 [ext_resource type="Texture2D" path="res://world/art/kenney_tiles.png" id="2"]
 [ext_resource type="Texture2D" path="res://rocket/art/sparkle.svg" id="3"]
+[ext_resource type="AudioStream" path="res://audio/flag_raise.wav" id="4"]
+[ext_resource type="AudioStream" path="res://audio/level_complete.wav" id="5"]
 
 [sub_resource type="AtlasTexture" id="Atlas_off"]
 atlas = ExtResource("2")
@@ -78,3 +80,9 @@ angular_velocity_max = 90.0
 scale_amount_min = 0.4
 scale_amount_max = 0.9
 color_ramp = SubResource("Gradient_sparkle")
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+
+[node name="CompleteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")
