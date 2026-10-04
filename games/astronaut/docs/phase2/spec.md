@@ -17,9 +17,9 @@ Same player, same rules as phase 1 (`../spec.md`): age 3, no text, very forgivin
 ## Physics: an Earth feel
 
 - One physics setup for all 5 levels.
-- Jump height about 2.5 tiles (160 px, about 1.8x his height), fixed: holding the button longer does not jump higher.
-- Heavier gravity and a quicker arc: about 0.67 s in the air (target gravity about 2850 px/s², jump velocity about -955 px/s). Final numbers are tuned by feel in the design phase.
-- Flat jump reach about 3.7 tiles at his running speed (350 px/s), plus the 0.2 s coyote time. Air control, coyote time and jump buffer stay as they are.
+- Jump height about 2.75 tiles (176 px, about 2x his height), fixed: holding the button longer does not jump higher. It started at 2.5 tiles and was raised in the design phase: levels sit on a 64 px grid, and at 2.5 tiles a 2-tile step up would need more than the 75% budget below allows.
+- Heavier gravity and a quicker arc: about 0.7 s in the air (target gravity about 2850 px/s², jump velocity about -1000 px/s). Final numbers are tuned by feel in the first milestone.
+- Flat jump reach about 3.8 tiles at his running speed (350 px/s), plus the 0.2 s coyote time. Air control, coyote time and jump buffer stay as they are.
 - Instant start and stop stay, with no momentum: stopping precisely at an edge is too hard at age 3.
 - Why this feels like Earth: he no longer floats. The phase 1 jump (4 tiles, 1 s in the air) is moon-like, and it stays in git history for a future low-gravity planet.
 
@@ -27,10 +27,10 @@ Same player, same rules as phase 1 (`../spec.md`): age 3, no text, very forgivin
 
 Rules for laying out every level:
 
-- A required jump never needs more than about 75% of the maximum:
-  - rises of at most 1.75 tiles;
-  - flat gaps of at most 2.75 tiles;
-  - a rise and a gap together stay inside the same budget (about 2 tiles of gap with a 1.75-tile rise).
+- A required jump never needs more than about 75% of the maximum. On the 64 px grid that means:
+  - steps up of 1 or 2 tiles;
+  - gaps of at most 2 tiles, including when combined with a 2-tile step up;
+  - never a 3-tile step or a 3-tile gap.
 - Platforms are wide. Falling still just means landing lower, with nothing lost.
 - Every level is checked by simulation to confirm each required jump is reachable.
 
