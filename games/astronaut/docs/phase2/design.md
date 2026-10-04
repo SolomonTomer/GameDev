@@ -9,12 +9,12 @@ How we build `spec.md` (phase 2). If this doc and the spec disagree, the spec wi
 | Value | Phase 1 | Phase 2 |
 |---|---|---|
 | `gravity` | 2048 | 2850 |
-| `jump_velocity` | -1024 | -1000 |
+| `jump_velocity` | -1024 | -980 |
 | Jump height | 256 px (4 tiles) | 175 px (2.75 tiles, about 2x his 90 px height) |
 | Air time | 1.0 s | 0.70 s |
 | Flat reach at 350 px/s | 350 px (5.5 tiles) | 246 px (3.8 tiles) |
 
-`run_speed` (350), `air_control` (1.0), `coyote_time` (0.2) and `jump_buffer_time` (0.2) are unchanged. These are starting values, tuned by feel during the first milestone.
+`run_speed` (350), `air_control` (1.0), `coyote_time` (0.2) and `jump_buffer_time` (0.2) are unchanged. These are starting values. `jump_velocity` was tuned to -980 in P1: with discrete physics steps -1000 measured about 184 px of jump, and -980 measures about 175-177 px.
 
 **Why 2.75 tiles rather than the spec's first "about 2.5":** levels sit on a 64 px grid, so a step up is 1 or 2 tiles. At 2.5 tiles (160 px) a 2-tile step needs 80% of the jump, over the 75% budget, which would force every climb into 1-tile steps. At 2.75 tiles a 2-tile step needs 73%. The spec is updated to match.
 
@@ -160,7 +160,7 @@ These are starting layouts. Each is checked by simulation and adjusted in its mi
 - **New SVGs:** `stars/art/star.svg` and `stars/art/star_slot.svg`, hand-written like the rocket art, imported directly by Godot.
 - **Flag:** Kenney atlas regions, so no new image files.
 - **Moving plank:** the existing `bridge` tile.
-- **New sounds:** `audio/flag_raise.wav` (a short chime) and `audio/level_complete.wav` (a happy jingle). They come from Kenney's CC0 audio packs, the same source as the art, with the license kept next to them. If they can't be downloaded, a small Godot script synthesizes simple tones instead.
+- **New sounds:** `audio/flag_raise.wav` (a rising three-note chime) and `audio/level_complete.wav` (a short happy jingle). Kenney audio was not downloaded; both are synthesized sine tones written by a small Godot script (the design's fallback), so they are simple placeholders like the phase 1 sounds.
 
 ## Verification
 
@@ -172,3 +172,10 @@ These are starting layouts. Each is checked by simulation and adjusted in its mi
 - The sequence is checked end to end: level 1 → 2 → 3 → 4 → 5 → the rocket launch → level 1, with a fresh level each time and the panel showing the right number of slots.
 - A full-resolution render of each level, for you to judge.
 - No new automated tests.
+
+## Build notes (changes made while building)
+
+- **`Goal` base class** (`levels/goal.gd`): the Flag and the Rocket both extend it, declaring `needs_stars`, `completed` and `set_ready()` once, so `Level` can type its goal.
+- **Player-only triggers:** the Flag and the Star ignore any body that isn't the `Player`. The flag's area touches the floor tiles at its foot, which otherwise counted as a body entering.
+- **Gravity while controls are off:** `Player` still falls and lands when controls are disabled, so touching the flag mid-jump lands him before the hop (`celebrate()` waits for the floor). Input stays ignored.
+- **Sounds:** synthesized, see Art and audio.

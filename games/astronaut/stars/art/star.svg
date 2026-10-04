@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Collectible star: yellow fill, dark outline like the rocket art. -->
+  <path d="M40 8 L48.8 29.9 L72.3 31.5 L54.3 46.6 L60 69.5 L40 57 L20 69.5 L25.7 46.6 L7.7 31.5 L31.2 29.9 Z" fill="#ffd93d"/>
+  <path d="M40 8 L48.8 29.9 L40 42 L31.2 29.9 Z" fill="#ffe98a"/>
+  <path d="M40 8 L48.8 29.9 L72.3 31.5 L54.3 46.6 L60 69.5 L40 57 L20 69.5 L25.7 46.6 L7.7 31.5 L31.2 29.9 Z" fill="none" stroke="#2b2d42" stroke-width="4"/>
+  <circle cx="36" cy="26" r="2.5" fill="#ffffff" opacity="0.8"/>
+</svg>

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1")
 run_speed = 350.0
-gravity = 2048.0
-jump_velocity = -1024.0
+gravity = 2850.0
+jump_velocity = -980.0
 air_control = 1.0
 coyote_time = 0.2
 jump_buffer_time = 0.2

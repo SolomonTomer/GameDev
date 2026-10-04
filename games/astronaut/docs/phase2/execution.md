@@ -4,10 +4,10 @@ Implements `design.md` (phase 2). Each milestone is one branch made from the lat
 
 | # | Milestone | Rough target | Status |
 |---|---|---|---|
-| P1 | Framework, Earth physics, level 1 | 10/10 | Not started |
-| P2 | Levels 2 and 3: jumping, riding, the first star | 17/10 | Not started |
-| P3 | Levels 4 and 5: platforming, the climb, the rocket | 27/10 | Not started |
-| P4 | Sounds and a full-run polish | 1/11 | Not started |
+| P1 | Framework, Earth physics, level 1 | 10/10 | Done |
+| P2 | Levels 2 and 3: jumping, riding, the first star | 17/10 | Done |
+| P3 | Levels 4 and 5: platforming, the climb, the rocket | 27/10 | Done |
+| P4 | Sounds and a full-run polish | 1/11 | Done |
 
 The targets leave about two weeks before 18/11 for your own playtesting. If time runs short, level 4 is cut first (spec).
 
@@ -75,3 +75,10 @@ Steps:
 4. Update the spec and design if anything changed while building, and mark phase 2 done here.
 
 Playtest: the whole game from boot, twice in a row. Does it feel like one journey, and does he want to go again?
+
+## Status: phase 2 done
+
+All four milestones are built and verified by simulation. Timings were left as designed: the flag celebration is about 2 s plus a 0.35 s fade each way, the rocket launch takes 3.6 s, and nothing dragged in the full-run simulation. Known, accepted behaviours:
+- From level 3's pit he can sometimes hop onto the plank beside its path and ride across; the plank is still the only way over.
+- The step back up from level 5's catch platform to P3 is blocked for about 2 s each cycle while the elevator rests at its bottom stop.
+- The two up-2-tile jumps allow about 0.16 s of late coyote jump, a bit less than the full 0.2 s.

@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://flag/flag.gd" id="1"]
+[ext_resource type="Texture2D" path="res://world/art/kenney_tiles.png" id="2"]
+[ext_resource type="Texture2D" path="res://rocket/art/sparkle.svg" id="3"]
+[ext_resource type="AudioStream" path="res://audio/flag_raise.wav" id="4"]
+[ext_resource type="AudioStream" path="res://audio/level_complete.wav" id="5"]
+
+[sub_resource type="AtlasTexture" id="Atlas_off"]
+atlas = ExtResource("2")
+region = Rect2(1040, 130, 64, 64)
+
+[sub_resource type="AtlasTexture" id="Atlas_a"]
+atlas = ExtResource("2")
+region = Rect2(1105, 130, 64, 64)
+
+[sub_resource type="AtlasTexture" id="Atlas_b"]
+atlas = ExtResource("2")
+region = Rect2(0, 195, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("Atlas_off")
+}],
+"loop": true,
+"name": &"off",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("Atlas_a")
+}, {
+"duration": 1.0,
+"texture": SubResource("Atlas_b")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flag"]
+size = Vector2(80, 128)
+
+[sub_resource type="Gradient" id="Gradient_sparkle"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Flag" type="Area2D"]
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_flag")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_flag")
+animation = &"off"
+
+[node name="Sparkles" type="CPUParticles2D" parent="."]
+position = Vector2(20, -90)
+emitting = false
+amount = 14
+lifetime = 1.0
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("3")
+emission_shape = 3
+emission_rect_extents = Vector2(40, 50)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 110.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_min = 0.4
+scale_amount_max = 0.9
+color_ramp = SubResource("Gradient_sparkle")
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+
+[node name="CompleteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")

@@ -19,6 +19,8 @@ func set_controls_enabled(enabled: bool) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not _controls_enabled:
+		velocity.y += tuning.gravity * delta
+		move_and_slide()
 		return
 
 	if is_on_floor():
@@ -64,3 +66,16 @@ func _update_animation(direction: float, just_landed: bool) -> void:
 		return
 	else:
 		_sprite.play(&"run" if direction != 0.0 else &"idle")
+
+func celebrate() -> void:
+	set_controls_enabled(false)
+	while not is_on_floor():
+		await get_tree().physics_frame
+	var hop := create_tween()
+	for i in 2:
+		hop.tween_callback(_sprite.play.bind(&"jump"))
+		hop.tween_property(_sprite, "position:y", _sprite.position.y - 24.0, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		hop.tween_property(_sprite, "position:y", _sprite.position.y, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		hop.tween_callback(_sprite.play.bind(&"land"))
+		hop.tween_interval(0.12)
+	hop.tween_callback(_sprite.play.bind(&"idle"))
