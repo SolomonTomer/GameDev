@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://stars/stars_panel.gd" id="1"]
 [ext_resource type="AudioStream" path="res://audio/part_to_slot.wav" id="2"]
 [ext_resource type="AudioStream" path="res://audio/empty_slot_pulse.wav" id="3"]
+[ext_resource type="Texture2D" path="res://stars/art/star_slot.svg" id="4"]
 
 [node name="StarsPanel" type="CanvasLayer"]
 script = ExtResource("1")
@@ -16,20 +17,20 @@ stream = ExtResource("3")
 [node name="Slot0" type="Node2D" parent="."]
 position = Vector2(100, 60)
 
-[node name="Visual" type="Polygon2D" parent="Slot0"]
-color = Color(0.3, 0.3, 0.35, 1)
-polygon = PackedVector2Array(0, -20, 17.3, -10, 17.3, 10, 0, 20, -17.3, 10, -17.3, -10)
+[node name="Visual" type="Sprite2D" parent="Slot0"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4")
 
 [node name="Slot1" type="Node2D" parent="."]
 position = Vector2(180, 60)
 
-[node name="Visual" type="Polygon2D" parent="Slot1"]
-color = Color(0.3, 0.3, 0.35, 1)
-polygon = PackedVector2Array(0, -20, 17.3, -10, 17.3, 10, 0, 20, -17.3, 10, -17.3, -10)
+[node name="Visual" type="Sprite2D" parent="Slot1"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4")
 
 [node name="Slot2" type="Node2D" parent="."]
 position = Vector2(260, 60)
 
-[node name="Visual" type="Polygon2D" parent="Slot2"]
-color = Color(0.3, 0.3, 0.35, 1)
-polygon = PackedVector2Array(0, -20, 17.3, -10, 17.3, 10, 0, 20, -17.3, 10, -17.3, -10)
+[node name="Visual" type="Sprite2D" parent="Slot2"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4")
