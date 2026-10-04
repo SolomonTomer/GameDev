@@ -7,7 +7,7 @@ Toddler-friendly 2D climbing platformer.
 - `docs/spec.md`: what and why (source of truth)
 - `docs/design.md`: technical design
 - `docs/execution.md`: milestones and status
-- `docs/phase2/spec.md`: phase 2, five Earth levels (design and execution docs will sit next to it)
+- `docs/phase2/spec.md`, `design.md`, `execution.md`: phase 2, five Earth levels
 
 ## Stack
 
