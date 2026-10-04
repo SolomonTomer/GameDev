@@ -1,7 +1,7 @@
-class_name EnginePart
+class_name Star
 extends Area2D
 
-signal collected(part: EnginePart)
+signal collected(star: Star)
 
 @onready var _pickup_sound: AudioStreamPlayer = $PickupSound
 

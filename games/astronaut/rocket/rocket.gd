@@ -1,8 +1,5 @@
 class_name Rocket
-extends Area2D
-
-signal needs_parts
-signal launched
+extends Goal
 
 const LAUNCH_RISE := 1400.0
 const EXCITED_ANGLES: Array[float] = [-3.0, 3.0, -2.5, 2.5, 0.0]
@@ -70,7 +67,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if _launching:
 		return
 	if not _ready_to_launch:
-		needs_parts.emit()
+		needs_stars.emit()
 		_hop()
 		return
 	_launch(body)
@@ -108,7 +105,7 @@ func _launch(body: Node2D) -> void:
 	tween.tween_property(_visual, "scale", Vector2(1.08, 0.92), 0.15)
 	tween.tween_property(self, "position:y", position.y - LAUNCH_RISE, 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(_visual, "scale", Vector2(0.93, 1.12), 0.5)
-	tween.tween_callback(func() -> void: launched.emit())
+	tween.tween_callback(func() -> void: completed.emit())
 
 func _on_door_closed() -> void:
 	_door_close_sound.play()
