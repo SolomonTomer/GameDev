@@ -102,6 +102,8 @@ On the dev PC, using either the arcade box or the keyboard: the game boots into 
 
 ## Later (not this build)
 
+Next step: phase 2 (five Earth levels) is specified in `phase2/spec.md`.
+
 Recorded so the prototype doesn't block it, not to be built now:
 - 3 planets × 3 worlds.
 - After the launch, a planet map. `left` and `right` move the rocket between planets, `jump` lands on one, and each rocket upgrade unlocks new planets.
