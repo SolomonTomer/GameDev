@@ -1,0 +1,54 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_a58qw"]
+[ext_resource type="TileSet" path="res://world/tiles.tres" id="2_ij65d"]
+[ext_resource type="PackedScene" path="res://world/moving_platform.tscn" id="3_gci8k"]
+[ext_resource type="Script" path="res://world/moving_platform.gd" id="4_gder6"]
+[ext_resource type="PackedScene" path="res://stars/star.tscn" id="5_hv08k"]
+[ext_resource type="Script" path="res://stars/star.gd" id="6_p0827"]
+[ext_resource type="PackedScene" path="res://rocket/rocket.tscn" id="7_brp6y"]
+[ext_resource type="Script" path="res://rocket/rocket.gd" id="8_mgx0j"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="9_k3t65"]
+[ext_resource type="Script" path="res://player/player.gd" id="10_bon8i"]
+[ext_resource type="Resource" path="res://player/movement_tuning.tres" id="11_av2kh"]
+
+[node name="Level" type="Node2D" unique_id=1335362944]
+script = ExtResource("1_a58qw")
+
+[node name="Decor" type="TileMapLayer" parent="." unique_id=1097803002]
+tile_map_data = PackedByteArray("AAAGAA0AAAANAAEAAAANAAsAAAAHAAYAAAATAAkAAAANAAEAAAAMAA8AAAAHAAMAAAAaAAsAAAAJAAYAAAA=")
+tile_set = ExtResource("2_ij65d")
+
+[node name="Terrain" type="TileMapLayer" parent="." unique_id=1838143101]
+tile_map_data = PackedByteArray("AAAAABAAAAAIAAkAAAABABAAAAALAAkAAAACABAAAAALAAkAAAADABAAAAALAAkAAAAEABAAAAALAAkAAAAFABAAAAALAAkAAAAGABAAAAALAAkAAAAHABAAAAALAAkAAAAIABAAAAALAAkAAAAJABAAAAALAAkAAAAKABAAAAALAAkAAAALABAAAAALAAkAAAAMABAAAAALAAkAAAANABAAAAALAAkAAAAOABAAAAALAAkAAAAPABAAAAALAAkAAAAQABAAAAALAAkAAAARABAAAAALAAkAAAASABAAAAALAAkAAAATABAAAAALAAkAAAAUABAAAAALAAkAAAAVABAAAAALAAkAAAAWABAAAAALAAkAAAAXABAAAAALAAkAAAAYABAAAAALAAkAAAAZABAAAAALAAkAAAAaABAAAAALAAkAAAAbABAAAAALAAkAAAAcABAAAAALAAkAAAAdABAAAAAIAAkAAAAAAAAAAAAKAAkAAAAdAAAAAAAJAAkAAAAAAAEAAAAKAAkAAAAdAAEAAAAJAAkAAAAAAAIAAAAKAAkAAAAdAAIAAAAJAAkAAAAAAAMAAAAKAAkAAAAdAAMAAAAJAAkAAAAAAAQAAAAKAAkAAAAdAAQAAAAJAAkAAAAAAAUAAAAKAAkAAAAdAAUAAAAJAAkAAAAAAAYAAAAKAAkAAAAdAAYAAAAJAAkAAAAAAAcAAAAKAAkAAAAdAAcAAAAJAAkAAAAAAAgAAAAKAAkAAAAdAAgAAAAJAAkAAAAAAAkAAAAKAAkAAAAdAAkAAAAJAAkAAAAAAAoAAAAKAAkAAAAdAAoAAAAJAAkAAAAAAAsAAAAKAAkAAAAdAAsAAAAJAAkAAAAAAAwAAAAKAAkAAAAdAAwAAAAJAAkAAAAAAA0AAAAKAAkAAAAdAA0AAAAJAAkAAAAAAA4AAAAKAAkAAAAdAA4AAAAJAAkAAAAAAA8AAAAKAAkAAAAdAA8AAAAJAAkAAAAEAA4AAAABAAoAAAAFAA4AAAACAAoAAAAGAA4AAAACAAoAAAAHAA4AAAACAAoAAAAIAA4AAAAFAAoAAAAEAA8AAAAIAAkAAAAFAA8AAAAIAAkAAAAGAA8AAAAIAAkAAAAHAA8AAAAIAAkAAAAIAA8AAAAIAAkAAAALAAwAAAABAAoAAAAMAAwAAAACAAoAAAANAAwAAAACAAoAAAAOAAwAAAAFAAoAAAARAAoAAAABAAoAAAASAAoAAAACAAoAAAATAAoAAAACAAoAAAAUAAoAAAACAAoAAAAVAAoAAAAFAAoAAAAWAAwAAAABAAoAAAAXAAwAAAACAAoAAAAYAAwAAAACAAoAAAAZAAwAAAACAAoAAAAaAAwAAAACAAoAAAAbAAwAAAACAAoAAAAcAAwAAAACAAoAAAAZAAYAAAABAAoAAAAaAAYAAAACAAoAAAAbAAYAAAACAAoAAAAcAAYAAAACAAoAAAA=")
+tile_set = ExtResource("2_ij65d")
+
+[node name="MovingPlatform" type="AnimatableBody2D" parent="." unique_id=955260976 instance=ExtResource("3_gci8k")]
+position = Vector2(1504, 652)
+script = ExtResource("4_gder6")
+travel_offset = Vector2(0, -256)
+travel_speed = 120.0
+pause_time = 2.0
+
+[node name="Stars" type="Node2D" parent="." unique_id=844965670]
+
+[node name="Star1" type="Area2D" parent="Stars" unique_id=1762585826 instance=ExtResource("5_hv08k")]
+position = Vector2(832, 723)
+script = ExtResource("6_p0827")
+
+[node name="Star2" type="Area2D" parent="Stars" unique_id=806785914 instance=ExtResource("5_hv08k")]
+position = Vector2(1248, 499)
+script = ExtResource("6_p0827")
+
+[node name="Star3" type="Area2D" parent="Stars" unique_id=465987518 instance=ExtResource("5_hv08k")]
+position = Vector2(1504, 467)
+script = ExtResource("6_p0827")
+
+[node name="Goal" type="Area2D" parent="." unique_id=777186776 instance=ExtResource("7_brp6y")]
+position = Vector2(1728, 288)
+script = ExtResource("8_mgx0j")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1696199952 instance=ExtResource("9_k3t65")]
+position = Vector2(160, 979)
+script = ExtResource("10_bon8i")
+tuning = ExtResource("11_av2kh")

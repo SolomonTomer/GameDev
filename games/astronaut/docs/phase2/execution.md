@@ -6,7 +6,7 @@ Implements `design.md` (phase 2). Each milestone is one branch made from the lat
 |---|---|---|---|
 | P1 | Framework, Earth physics, level 1 | 10/10 | Done |
 | P2 | Levels 2 and 3: jumping, riding, the first star | 17/10 | Done |
-| P3 | Levels 4 and 5: platforming, the climb, the rocket | 27/10 | Not started |
+| P3 | Levels 4 and 5: platforming, the climb, the rocket | 27/10 | Done |
 | P4 | Sounds and a full-run polish | 1/11 | Not started |
 
 The targets leave about two weeks before 18/11 for your own playtesting. If time runs short, level 4 is cut first (spec).
